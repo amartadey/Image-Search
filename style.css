@@ -1,0 +1,28 @@
+*{ margin: 0; padding: 0; box-sizing: border-box;}
+body{ font-family: 'Poppins', sans-serif; min-height: 100vh;}
+body.dark { background-color: #0F0E1C;}
+header { display: flex; align-items: center; padding:10px 15px; justify-content: space-between; flex-wrap: wrap;  border-radius: 0 0 20px 20px}
+header .logo-block { max-width: 200px;margin: 0; padding: 0; }
+header .logo-block img { width: 100%; height: auto; }
+header .search-box { width: 900px; max-width: 100%; }
+header .search-box input{font-size: 16px; width: 100%; min-height:50px; padding: 6px 12px; border: none; outline: none; border-radius: 5px;}
+body.dark header{ background-color: #1A1D2E;}
+header .search-box .search-filter { position: relative;}
+header .search-box span {position: absolute; top: 11px; right: 16px; font-size: 24px;}
+body.dark header .search-box input{ color: #fff;  background-color: #0F0E1C; }
+body.dark header .search-box span { color: rgb(255 255 255 / 50%);}
+.settings-block #toggle-switch { cursor: pointer; background: none; border: none; outline: none;}
+#img-results { padding: 50px 0; display: flex; flex-wrap: wrap; justify-content: space-between;}
+#img-results .img-block { width: 18%; height: 200px; box-sizing: border-box; background: rgb(26 29 46); margin: 0 1% 40px; box-sizing: border-box; border-radius: 10px; overflow: hidden;}
+#img-results .img-block figure{ border-radius: 10px; margin: 0; padding: 0; line-height: 0; }
+#img-results .img-block figure img{ line-height: 0; object-fit: contain;}
+#error { text-align: center; display: none;}
+#error h2 { font-size: 20px; font-weight: 300; text-transform: uppercase; display: inline-block;  padding: 10px 20px; border-radius: 15px;}
+#img-results .img-block {position: relative; }
+#img-results .img-block .img-details {  display: flex; justify-content: space-between;position: absolute; width: 100%; bottom: 20px; left: 0; padding: 0 15px;}
+#img-results .img-block .img-details p {  background: rgb(15 14 28); padding: 5px; border-radius: 21px; color: rgb(255 255 255); display: inline-flex; align-items: center; padding-right: 10px; font-size: 12px; line-height: 14px;}
+#img-results .img-block .img-details p img { align-self: center; line-height: 0; width: 23px; height: auto; border-radius: 50%; display: inline-block; vertical-align: middle; margin-right: 10px;}
+#img-results .img-block .img-details  a{display: inline-flex; width: 30px; height: 30px; background-color: rgb(15 14 28); color: rgb(255 255 255); border-radius: 50%; align-items: center; justify-content: center; text-decoration: none;}
+#img-results .img-block .img-details  a span { font-size: 15px;}
+body.dark #error h2 {color: #fff; background-color: #1A1D2E;}
+
