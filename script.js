@@ -34,14 +34,14 @@ function searchImage(e){
                         <div class="img-details">
                             <p><img src="${data.hits[single].userImageURL?data.hits[single].userImageURL:"https://pixabay.com/static/img/logo_square.png"}" alt=""> <span>${data.hits[single].user}</span></p>
                             <div>
-                                <a href="${data.hits[single].pageURL}" target="_blank" class="full-img"><span class="material-icons">zoom_out_map</span></a>
+                                <a href="${data.hits[single].largeImageURL}" download = "${data.hits[single].largeImageURL}" target="_blank" class="full-img"><span class="material-icons">zoom_out_map</span></a>
                                 <a href="${data.hits[single].pageURL}" target="_blank" class="full-img"><span class="material-icons">nat</span></a>
                             </div>
                         </div>
                     </div>
                      
                 `;
-                console.log(data.hits[single].userImageURL);
+                // console.log(data.hits[single].userImageURL);
                 console.log(data.hits[single]);
             }
             document.querySelector('#img-results').innerHTML = output;
