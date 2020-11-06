@@ -12,7 +12,7 @@ header .search-box span {position: absolute; top: 11px; right: 16px; font-size: 
 body.dark header .search-box input{ color: #fff;  background-color: #0F0E1C; }
 body.dark header .search-box span { color: rgb(255 255 255 / 50%);}
 .settings-block #toggle-switch { cursor: pointer; background: none; border: none; outline: none;}
-#img-results { padding: 50px 0; display: flex; flex-wrap: wrap; justify-content: space-between;}
+#img-results { padding: 50px 0; display: grid}
 #img-results .img-block { width: 18%; height: 200px; box-sizing: border-box; background: rgb(26 29 46); margin: 0 1% 40px; box-sizing: border-box; border-radius: 10px; overflow: hidden;}
 #img-results .img-block figure{ border-radius: 10px; margin: 0; padding: 0; line-height: 0; }
 #img-results .img-block figure img{ line-height: 0; object-fit: fill; width: 100%;}
