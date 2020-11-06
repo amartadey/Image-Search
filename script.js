@@ -8,11 +8,11 @@ function inputSearch(e){
 function searchImage(e){
     e.preventDefault();
     var query = document.querySelector('#search-box').value;
-    query = query.replace(/^\s+|\s+$/gm,'');
-    query=query.replace(/\s\s+/g, '+');
+    // query = query.replace(/^\s+|\s+$/gm,'');
+    // query=query.replace(/\s\s+/g, '+');
     if(query){
          console.log(query);
-         const PIXABAY = `https://pixabay.com/api/?key=14324962-56bff7393668e4578aa7564c9&q=${query}&image_type=photo`;
+         const PIXABAY = `https://pixabay.com/api/?key=14324962-56bff7393668e4578aa7564c9&q=${encodeURIComponent(query)}&image_type=photo`;
          const search = async ()=>{
             const response = await fetch(PIXABAY);
             if(response.status !==200){
@@ -34,12 +34,11 @@ function searchImage(e){
                         <div class="img-details">
                             <p><img src="${data.hits[single].userImageURL?data.hits[single].userImageURL:"https://pixabay.com/static/img/logo_square.png"}" alt=""> <span>${data.hits[single].user}</span></p>
                             <div>
-                                <a href="${data.hits[single].largeImageURL}" download = "${data.hits[single].largeImageURL}" target="_blank" class="full-img"><span class="material-icons">zoom_out_map</span></a>
+                                <a href="#" class="full-img-popup" data-img="${data.hits[single].largeImageURL}" ><span class="material-icons">zoom_out_map</span></a>
                                 <a href="${data.hits[single].pageURL}" target="_blank" class="full-img"><span class="material-icons">nat</span></a>
                             </div>
                         </div>
-                    </div>
-                     
+                    </div> 
                 `;
                 // console.log(data.hits[single].userImageURL);
                 console.log(data.hits[single]);
@@ -47,9 +46,13 @@ function searchImage(e){
             document.querySelector('#img-results').innerHTML = output;
             // console.log(data.hits);
             
+            
+        })
+        .then(()=>{
+            imgZoom();
         })
         .catch((err)=>{ 
-            document.querySelector('#error').style.display = "block";
+            document.querySelector('#error').style.display = "block";  
         })
     }
      
@@ -69,8 +72,45 @@ function modeButton(e){
         body.classList.toggle("day");
         body.classList.remove("dark");
     }
-    
 }
+
+function imgZoom(){
+    var popups = body.querySelectorAll('.full-img-popup');
+    var insertHtml = '';
+   for(let i=0; i<popups.length;i++){
+       popups[i].addEventListener('click', function(e){
+           e.preventDefault();
+           console.log(this.getAttribute("data-img"))
+           insertHtml = `
+           <div class="large-container">
+                <div class="large-img-container">
+                
+                    <div class="close-button" onclick = "closeImgbox()"><span class="material-icons">close</span></div>
+                    <figure>
+                        <img src="${this.getAttribute("data-img")}" alt="">
+                    </figure>
+                </div>
+            </div>
+           `;
+           var createLargeDiv = document.createElement('div');
+           body.classList.add('open-container-img');
+           createLargeDiv.classList.add('box-large-container');
+           createLargeDiv.innerHTML = insertHtml;
+           body.appendChild(createLargeDiv);
+           
+           
+       });
+       
+   }
+}
+
+function closeImgbox(){
+    var elem = document.querySelector('.box-large-container');
+    elem.parentNode.removeChild(elem);
+    body.classList.remove('open-container-img');
+          
+}
+
 
 
 
